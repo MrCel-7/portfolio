@@ -3,7 +3,6 @@ import HomeHeader from "./components/HomeHeader";
 import {
   AlarmClock,
   BatteryFull,
-  Chrome,
   Home,
   Phone,
   Scroll,
@@ -119,7 +118,7 @@ const App = () => {
                       Marcel Wang
                     </h1>
                     <p className="text-gray-700 text-sm">
-                      And also I like to design using{" "}
+                      And also I like to design using <br />
                       <span className="text-blue-400">TailwindCSS</span>.
                     </p>
                   </div>
@@ -152,11 +151,11 @@ const App = () => {
 
           {/* body phone */}
           <div className="flex absolute gap-10 w-fit mt-110 h-fit mx-12">
-            <div className="flex p-3 rounded-lg w-fit text-white bg-white/30 border backdrop-blue-sm border-white/10 cursor-pointer">
-              <GrGallery size={45} />
+            <div className="flex rounded-lg w-15 h-15 items-center justify-center text-white bg-white/30 border backdrop-blue-sm border-white/10 cursor-pointer">
+              <GrGallery size={28} />
             </div>
-            <div className="flex p-3 rounded-lg w-fit text-white bg-white/30 border backdrop-blue-sm border-white/10 cursor-pointer">
-              <FaChrome size={45} />
+            <div className="flex w-15 h-15 rounded-lg justify-center items-center text-white bg-white/30 border backdrop-blue-sm border-white/10 cursor-pointer">
+              <FaChrome size={28} />
             </div>
           </div>
 
