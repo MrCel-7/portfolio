@@ -3,9 +3,11 @@ import HomeHeader from "./components/HomeHeader";
 import {
   AlarmClock,
   BatteryFull,
+  Cake,
   Home,
   Phone,
   Scroll,
+  Tag,
   Wifi,
   X,
 } from "lucide-react";
@@ -13,7 +15,7 @@ import { IoIosArrowUp } from "react-icons/io";
 import { BsLightning } from "react-icons/bs";
 import { GiOpenBook } from "react-icons/gi";
 import TopNotification from "./components/TopNotification";
-import { GrGallery } from "react-icons/gr";
+import { GrGallery, GrLocation } from "react-icons/gr";
 import { FaChrome } from "react-icons/fa";
 
 const App = () => {
@@ -21,15 +23,12 @@ const App = () => {
   const [startY, setStartY] = useState(null);
   const [unlocked, setUnlocked] = useState(false);
   const [isAnimating, setIsAnimating] = useState(false);
-  const [showA, setShowA] = useState(false);
-  const [showB, setShowB] = useState(false);
-  const [showC, setShowC] = useState(false);
-  const [showD, setShowD] = useState(false);
-  const [showE, setShowE] = useState(false);
 
   const [showAbout, setShowAbout] = useState(false);
 
   const THRESHOLD = 160;
+
+  const age = new Date().getFullYear() - 2004;
 
   const handleStart = (y) => {
     if (isAnimating) return;
@@ -174,18 +173,50 @@ const App = () => {
               <div className="relative w-full mx-10">
                 <div className="about-pop rounded-xl bg-white/30 border border-white/10 backdrop-blur-lg p-6 text-white">
                   <div className="flex justify-between items-center mb-4">
-                    <h1 className="text-2xl font-bold">ABOUT</h1>
+                    <h1 className="text-2xl font-bold text-white">ABOUT</h1>
                     <button onClick={() => setShowAbout(false)}>
                       <X size={20} />
                     </button>
                   </div>
 
-                  <div className="about-scroll px-6 pb-6">
-                    <p className="text-white/90">
-                      Hi! I’m Marcel Wang. I like to code using JavaScript and
-                      TailwindCSS.
-                    </p>
-                    <img src="/gambar-1.png" />
+                  <div className="about-scroll gap-2 flex flex-col px-6 pb-6">
+                    <div className="flex gap-5 items-center">
+                      <div className="flex items-center gap-3">
+                        <Tag size={25} />
+                      </div>
+                      <p className="text-white text-xl">Marcel Wang</p>
+                    </div>
+                    <div className="flex gap-5 w-full">
+                      <div className="flex items-center gap-3">
+                        <Cake size={25} />
+                      </div>
+                      <p className="text-white text-xl">{age} Years Old</p>
+                    </div>
+                    <div className="flex gap-5 w-full">
+                      <div className="flex items-center gap-3">
+                        <GrLocation size={25} />
+                      </div>
+                      <p className="text-white text-xl">Tangerang, Indonesia</p>
+                    </div>
+                    <div className="flex gap-5 w-full">
+                      <div className="flex items-center gap-3">
+                        <GiOpenBook size={25} />
+                      </div>
+                      <p className="text-white text-xl">Pamulang University</p>
+                    </div>
+                    <div className="flex gap-5 w-full">
+                      <p className="text-white text-xl mt-8 text-justify indent-5">
+                        Hi! What do you like more? Between code and design. I
+                        like to do both of them. Welcome to my portfolio hope
+                        you enjoy! :)
+                      </p>
+                    </div>
+                    <div className="flex mt-10 w-full justify-center">
+                      <img
+                        src="/gambar-1.png"
+                        className="w-30 rounded-full border-white/10 bg-white/10 backdrop-blur-lg border-2"
+                      />
+                    </div>
                   </div>
                 </div>
               </div>
@@ -195,65 +226,22 @@ const App = () => {
           {/* Bottom Apps Icon */}
           <div className="absolute border-t-3 border-white/10 bg-white/10 backdrop-blur-sm flex gap-5 bottom-0 w-full justify-center py-5">
             <div
-              onMouseEnter={() => setShowA(true)}
-              onMouseLeave={() => setShowA(false)}
               onClick={() => setShowAbout(true)}
               className="w-15 hover:scale-110 cursor-pointer h-15 rounded-full flex border-3 justify-center items-center border-white"
             >
               <Scroll size={28} className="text-white font-bold" />
-              {showA && (
-                <div className="absolute -top-15 border border-white/30 rounded px-2 py-1 bg-white/10 backdrop-blur-sm">
-                  <p className="text-lg text-white">About</p>
-                </div>
-              )}
             </div>
-            <div
-              onMouseEnter={() => setShowB(true)}
-              onMouseLeave={() => setShowB(false)}
-              className="w-15 hover:scale-110 cursor-pointer h-15 rounded-full flex border-3 justify-center items-center border-white"
-            >
+            <div className="w-15 hover:scale-110 cursor-pointer h-15 rounded-full flex border-3 justify-center items-center border-white">
               <BsLightning size={28} className="text-white font-bold" />
-              {showB && (
-                <div className="absolute -top-15 border border-white/30 rounded px-2 py-1 bg-white/10 backdrop-blur-sm">
-                  <p className="text-lg text-white">Skills</p>
-                </div>
-              )}
             </div>
-            <div
-              onMouseEnter={() => setShowE(true)}
-              onMouseLeave={() => setShowE(false)}
-              className="w-15 hover:scale-125 scale-110 cursor-pointer h-15 rounded-full flex border-3 justify-center items-center border-white"
-            >
+            <div className="w-15 hover:scale-125 scale-110 cursor-pointer h-15 rounded-full flex border-3 justify-center items-center border-white">
               <Home size={28} className="text-white font-bold" />
-              {showE && (
-                <div className="absolute -top-15 border border-white/30 rounded px-2 py-1 bg-white/10 backdrop-blur-sm">
-                  <p className="text-lg text-white">Home</p>
-                </div>
-              )}
             </div>
-            <div
-              onMouseEnter={() => setShowC(true)}
-              onMouseLeave={() => setShowC(false)}
-              className="w-15 hover:scale-110 cursor-pointer h-15 rounded-full flex border-3 justify-center items-center border-white"
-            >
+            <div className="w-15 hover:scale-110 cursor-pointer h-15 rounded-full flex border-3 justify-center items-center border-white">
               <GiOpenBook size={28} className="text-white font-bold" />
-              {showC && (
-                <div className="absolute -top-15 border border-white/30 rounded px-2 py-1 bg-white/10 backdrop-blur-sm">
-                  <p className="text-lg text-white">Projects</p>
-                </div>
-              )}
             </div>
-            <div
-              onMouseEnter={() => setShowD(true)}
-              onMouseLeave={() => setShowD(false)}
-              className="w-15 hover:scale-110 cursor-pointer h-15 rounded-full flex border-3 justify-center items-center border-white"
-            >
+            <div className="w-15 hover:scale-110 cursor-pointer h-15 rounded-full flex border-3 justify-center items-center border-white">
               <Phone size={28} className="text-white font-bold" />
-              {showD && (
-                <div className="absolute -top-15 border border-white/30 rounded px-2 py-1 bg-white/10 backdrop-blur-sm">
-                  <p className="text-lg text-white">Contact</p>
-                </div>
-              )}
             </div>
           </div>
         </div>
