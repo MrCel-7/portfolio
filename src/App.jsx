@@ -7,6 +7,7 @@ import {
   Phone,
   Scroll,
   Wifi,
+  X,
 } from "lucide-react";
 import { IoIosArrowUp } from "react-icons/io";
 import { BsLightning } from "react-icons/bs";
@@ -159,11 +160,44 @@ const App = () => {
             </div>
           </div>
 
+          {/* Pop Up Box */}
+          {/* About */}
+          {showAbout && (
+            <div className="fixed inset-0 z-50 px-10 grid place-items-center">
+              {/* overlay */}
+              <div
+                className="absolute inset-0"
+                onClick={() => setShowAbout(false)}
+              />
+
+              {/* popup */}
+              <div className="relative w-full mx-10">
+                <div className="about-pop rounded-xl bg-white/30 border border-white/10 backdrop-blur-lg p-6 text-white">
+                  <div className="flex justify-between items-center mb-4">
+                    <h1 className="text-2xl font-bold">ABOUT</h1>
+                    <button onClick={() => setShowAbout(false)}>
+                      <X size={20} />
+                    </button>
+                  </div>
+
+                  <div className="about-scroll px-6 pb-6">
+                    <p className="text-white/90">
+                      Hi! I’m Marcel Wang. I like to code using JavaScript and
+                      TailwindCSS.
+                    </p>
+                    <img src="/gambar-1.png" />
+                  </div>
+                </div>
+              </div>
+            </div>
+          )}
+
           {/* Bottom Apps Icon */}
           <div className="absolute border-t-3 border-white/10 bg-white/10 backdrop-blur-sm flex gap-5 bottom-0 w-full justify-center py-5">
             <div
               onMouseEnter={() => setShowA(true)}
               onMouseLeave={() => setShowA(false)}
+              onClick={() => setShowAbout(true)}
               className="w-15 hover:scale-110 cursor-pointer h-15 rounded-full flex border-3 justify-center items-center border-white"
             >
               <Scroll size={28} className="text-white font-bold" />
