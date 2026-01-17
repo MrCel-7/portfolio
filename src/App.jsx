@@ -1,22 +1,14 @@
 import { useState } from "react";
 import HomeHeader from "./components/HomeHeader";
-import {
-  AlarmClock,
-  BatteryFull,
-  Cake,
-  Home,
-  Phone,
-  Scroll,
-  Tag,
-  Wifi,
-  X,
-} from "lucide-react";
+import { AlarmClock, BatteryFull, Cake, Tag, Wifi, X } from "lucide-react";
 import { IoIosArrowUp } from "react-icons/io";
-import { BsLightning } from "react-icons/bs";
 import { GiOpenBook } from "react-icons/gi";
 import TopNotification from "./components/TopNotification";
 import { GrGallery, GrLocation } from "react-icons/gr";
 import { FaChrome } from "react-icons/fa";
+import BottomNav from "./components/BottomNav";
+import ShowSkill from "./components/ShowSkill";
+import ShowAbout from "./components/ShowAbout";
 
 const App = () => {
   const [offsetY, setOffsetY] = useState(0);
@@ -76,7 +68,7 @@ const App = () => {
     <div>
       {!unlocked && (
         <div
-          className={`fixed inset-0 z-50 ${
+          className={`fixed inset-0 z-999 ${
             isAnimating ? "transition-transform duration-500 ease-out" : ""
           }`}
           style={{ transform: `translateY(-${offsetY}px)` }}
@@ -170,182 +162,22 @@ const App = () => {
 
           {/* Pop Up Box */}
           {/* About */}
-          {showAbout && (
-            <div className="fixed inset-0 z-50 px-10 grid place-items-center">
-              {/* overlay */}
-              <div
-                className="absolute inset-0"
-                onClick={() => setShowAbout(false)}
-              />
-
-              {/* popup */}
-              <div className="relative w-full mx-10">
-                <div className="about-pop rounded-xl bg-white/30 border border-white/10 backdrop-blur-lg p-6 text-white">
-                  <div className="flex justify-between items-center mb-4">
-                    <h1 className="text-2xl font-bold text-white">ABOUT</h1>
-                    <button onClick={() => setShowAbout(false)}>
-                      <X size={20} />
-                    </button>
-                  </div>
-
-                  <div className="about-scroll gap-2 flex flex-col px-6 pb-6">
-                    <div className="flex gap-5 items-center">
-                      <div className="flex items-center gap-3">
-                        <Tag size={25} />
-                      </div>
-                      <p className="text-white text-xl">Marcel Wang</p>
-                    </div>
-                    <div className="flex gap-5 w-full">
-                      <div className="flex items-center gap-3">
-                        <Cake size={25} />
-                      </div>
-                      <p className="text-white text-xl">{age} Years Old</p>
-                    </div>
-                    <div className="flex gap-5 w-full">
-                      <div className="flex items-center gap-3">
-                        <GrLocation size={25} />
-                      </div>
-                      <p className="text-white text-xl">Tangerang, Indonesia</p>
-                    </div>
-                    <div className="flex gap-5 w-full">
-                      <div className="flex items-center gap-3">
-                        <GiOpenBook size={25} />
-                      </div>
-                      <p className="text-white text-xl">Pamulang University</p>
-                    </div>
-                    <div className="flex gap-5 w-full">
-                      <p className="text-white text-xl mt-8 text-justify indent-5">
-                        Hi! What do you like more? Between code and design. I
-                        like to do both of them. Welcome to my portfolio hope
-                        you enjoy! :)
-                      </p>
-                    </div>
-                    <div className="flex mt-10 w-full justify-center">
-                      <img
-                        src="/gambar-1.png"
-                        className="w-30 rounded-full border-white/10 bg-white/10 backdrop-blur-lg border-2"
-                      />
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          )}
+          {showAbout && <ShowAbout setShowAbout={setShowAbout} age={age} />}
 
           {/* Show Skill */}
           {showSkill && (
-            <div className="fixed inset-0 z-50 px-10 grid place-items-center">
-              {/* overlay */}
-              <div
-                className="absolute inset-0"
-                onClick={() => setShowSkill(false)}
-              />
-
-              {/* popup */}
-              <div className="relative w-full mx-10">
-                <div className="about-pop rounded-xl bg-white/30 border border-white/10 backdrop-blur-lg p-6 text-white">
-                  <div className="flex justify-between items-center mb-4">
-                    <h1 className="text-2xl font-bold text-white">Skills</h1>
-                    <button onClick={() => setShowSkill(false)}>
-                      <X size={20} />
-                    </button>
-                  </div>
-
-                  <div className="flex flex-col">
-                    <div className="flex w-full justify-between">
-                      <h1 className="text-xl">Javascript</h1>
-                      <span>{javascriptPercent}%</span>
-                    </div>
-                    <div className="w-full rounded-full overflow-hidden bg-white/30 backdrop-blur-lg">
-                      <div
-                        className="bg-yellow-400 py-1"
-                        style={{ width: `${javascriptPercent}%` }}
-                      ></div>
-                    </div>
-                  </div>
-                  <div className="flex mt-5 flex-col">
-                    <div className="flex w-full justify-between">
-                      <h1 className="text-xl">React</h1>
-                      <span>{reactPercent}%</span>
-                    </div>
-                    <div className="w-full rounded-full overflow-hidden bg-white/30 backdrop-blur-lg">
-                      <div
-                        className="bg-blue-400 py-1"
-                        style={{ width: `${reactPercent}%` }}
-                      ></div>
-                    </div>
-                  </div>
-                  <div className="flex mt-5 flex-col">
-                    <div className="flex w-full justify-between">
-                      <h1 className="text-xl">TailwindCSS</h1>
-                      <span>{tailwindPercent}%</span>
-                    </div>
-                    <div className="w-full rounded-full overflow-hidden bg-white/30 backdrop-blur-lg">
-                      <div
-                        className="bg-blue-200 py-1"
-                        style={{ width: `${tailwindPercent}%` }}
-                      ></div>
-                    </div>
-                  </div>
-                  <div className="flex mt-5 flex-col">
-                    <div className="flex w-full justify-between">
-                      <h1 className="text-xl">NodeJS</h1>
-                      <span>{nodeJsPercent}%</span>
-                    </div>
-                    <div className="w-full rounded-full overflow-hidden bg-white/30 backdrop-blur-lg">
-                      <div
-                        className="bg-green-400 py-1"
-                        style={{ width: `${nodeJsPercent}%` }}
-                      ></div>
-                    </div>
-                  </div>
-                  <div className="flex mt-5 flex-col">
-                    <div className="flex w-full justify-between">
-                      <h1 className="text-xl">MySQL</h1>
-                      <span>{mySql}%</span>
-                    </div>
-                    <div className="w-full rounded-full overflow-hidden bg-white/30 backdrop-blur-lg">
-                      <div
-                        className="bg-orange-400 py-1"
-                        style={{ width: `${mySql}%` }}
-                      ></div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
+            <ShowSkill
+              setShowSkill={setShowSkill}
+              javascriptPercent={javascriptPercent}
+              reactPercent={reactPercent}
+              tailwindPercent={tailwindPercent}
+              nodeJsPercent={nodeJsPercent}
+              mySql={mySql}
+            />
           )}
 
           {/* Bottom Apps Icon */}
-          <div className="absolute border-t-3 z-100 border-white/10 bg-white/10 backdrop-blur-sm flex gap-5 bottom-0 w-full justify-center py-5">
-            <div
-              onClick={() => {
-                setShowAbout(true);
-                setShowSkill(false);
-              }}
-              className="w-15 hover:scale-110 cursor-pointer h-15 rounded-full flex border-3 justify-center items-center border-white"
-            >
-              <Scroll size={28} className="text-white font-bold" />
-            </div>
-            <div
-              onClick={() => {
-                setShowSkill(true);
-                setShowAbout(false);
-              }}
-              className="w-15 hover:scale-110 cursor-pointer h-15 rounded-full flex border-3 justify-center items-center border-white"
-            >
-              <BsLightning size={28} className="text-white font-bold" />
-            </div>
-            <div className="w-15 hover:scale-125 scale-110 cursor-pointer h-15 rounded-full flex border-3 justify-center items-center border-white">
-              <Home size={28} className="text-white font-bold" />
-            </div>
-            <div className="w-15 hover:scale-110 cursor-pointer h-15 rounded-full flex border-3 justify-center items-center border-white">
-              <GiOpenBook size={28} className="text-white font-bold" />
-            </div>
-            <div className="w-15 hover:scale-110 cursor-pointer h-15 rounded-full flex border-3 justify-center items-center border-white">
-              <Phone size={28} className="text-white font-bold" />
-            </div>
-          </div>
+          <BottomNav setShowAbout={setShowAbout} setShowSkill={setShowSkill} />
         </div>
       </div>
     </div>
