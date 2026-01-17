@@ -164,7 +164,7 @@ const App = () => {
           {/* About */}
           {showAbout && <ShowAbout setShowAbout={setShowAbout} age={age} />}
 
-          {/* Show Skill */}
+          {/* Skill */}
           {showSkill && (
             <ShowSkill
               setShowSkill={setShowSkill}
@@ -177,7 +177,12 @@ const App = () => {
           )}
 
           {/* Bottom Apps Icon */}
-          <BottomNav setShowAbout={setShowAbout} setShowSkill={setShowSkill} />
+          <BottomNav
+            setShowAbout={setShowAbout}
+            setShowSkill={setShowSkill}
+            setShowProject={setShowProject}
+            setShowContact={setShowContact}
+          />
         </div>
       </div>
     </div>
