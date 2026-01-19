@@ -40,7 +40,7 @@
 }
 
 .about-scroll {
-  max-height: 55vh;
+  max-height: 50vh;
   overflow-y: auto;
 
   /* RUANG antara konten & border */
