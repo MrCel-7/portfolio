@@ -1,20 +1,22 @@
 import { useState } from "react";
 import HomeHeader from "./components/HomeHeader";
-import { AlarmClock, BatteryFull, Cake, Tag, Wifi, X } from "lucide-react";
+import { AlarmClock, BatteryFull, Wifi } from "lucide-react";
 import { IoIosArrowUp } from "react-icons/io";
-import { GiOpenBook } from "react-icons/gi";
 import TopNotification from "./components/TopNotification";
-import { GrGallery, GrLocation } from "react-icons/gr";
+import { GrGallery } from "react-icons/gr";
 import { FaChrome } from "react-icons/fa";
 import BottomNav from "./components/BottomNav";
 import ShowSkill from "./components/ShowSkill";
 import ShowAbout from "./components/ShowAbout";
+import ShowBrowser from "./pages/ShowBrowser";
 
 const App = () => {
   const [offsetY, setOffsetY] = useState(0);
   const [startY, setStartY] = useState(null);
   const [unlocked, setUnlocked] = useState(false);
   const [isAnimating, setIsAnimating] = useState(false);
+
+  const [showChrome, setShowChrome] = useState(false);
 
   const [showAbout, setShowAbout] = useState(false);
   const [showSkill, setShowSkill] = useState(false);
@@ -136,7 +138,11 @@ const App = () => {
       )}
 
       {/* HOME SCREEN */}
-      <div className="h-screen flex items-center justify-center">
+      <div
+        className={`h-screen flex items-center justify-center ${
+          showChrome ? "pointer-events-none" : "pointer-events-auto"
+        }`}
+      >
         <img src="/tag.jpeg" className="w-full h-screen object-cover" />
         <div className="flex bg-black/10 w-full h-screen absolute top-0 left-0">
           {/* Top Notification */}
@@ -155,10 +161,22 @@ const App = () => {
             <div className="flex rounded-lg w-15 h-15 items-center justify-center text-white bg-white/30 border backdrop-blue-sm border-white/10 cursor-pointer">
               <GrGallery size={28} />
             </div>
-            <div className="flex w-15 h-15 rounded-lg justify-center items-center text-white bg-white/30 border backdrop-blue-sm border-white/10 cursor-pointer">
+            <div
+              onClick={() => setShowChrome(true)}
+              className="flex w-15 h-15 rounded-lg justify-center items-center text-white bg-white/30 border backdrop-blue-sm border-white/10 cursor-pointer"
+            >
               <FaChrome size={28} />
             </div>
           </div>
+
+          {/* Pages */}
+          {showChrome && (
+            <ShowBrowser
+              setShowChrome={setShowChrome}
+              age={age}
+              className="flex z-200"
+            />
+          )}
 
           {/* Pop Up Box */}
           {/* About */}
