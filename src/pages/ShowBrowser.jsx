@@ -6,8 +6,8 @@ import { GiHamburgerMenu } from "react-icons/gi";
 
 const ShowBrowser = ({ setShowChrome, age }) => {
   return (
-    <div className="fixed inset-0 z-300 pointer-events-auto bg-white">
-      <div className="absolute py-1 border-b border-white/10 items-center flex justify-between px-5 top-0 text-black bg-white/10 backdrop-blur-lg w-full">
+    <div className="fixed inset-0 z-300 pointer-events-auto bg-white overflow-scroll">
+      <div className="fixed py-1 border-b border-white/10 items-center flex justify-between px-5 top-0 text-black bg-white/10 backdrop-blur-lg w-full">
         <TopNotification />
         <div className="p-2 bg-black rounded-full"></div>
         <div className="flex gap-2">
@@ -18,7 +18,7 @@ const ShowBrowser = ({ setShowChrome, age }) => {
       </div>
 
       {/* Body */}
-      <div className="w-full gap-2 h-screen p-2 flex flex-col">
+      <div className="w-full gap-2 h-fit p-2 flex flex-col">
         <h1 className="text-3xl mt-9 font-semibold">Marcel Wang</h1>
         <p className="text-sm">Web Developer</p>
         <div className="py-1 px-3 rounded-full border w-fit">
@@ -77,19 +77,34 @@ const ShowBrowser = ({ setShowChrome, age }) => {
             Marcel Wang is an Indonesian Web Developer with a strong passion for
             coding and web technologies. He grew up in Tangerang City and
             graduated from SMK Mulia Buana in 2021. Coding started as a hobby
-            for Marcel and gradually became his professional focus. He is
-            skilled in modern web technologies such as JavaScript, ReactJS, and
-            Tailwind CSS, which he uses to build interactive, responsive, and
-            visually appealing web interfaces. Driven by curiosity and
-            continuous learning, Marcel is committed to creating efficient,
-            user-friendly digital solutions and constantly improving his craft
-            as a web developer.
+            for Marcel and gradually became his professional focus.
           </p>
         </div>
+
+        <div className="w-full h-2 bg-gray-200"></div>
+
+        {/* Quick Facts */}
+        <div className="flex flex-col gap-5">
+          <h1 className="text-xl font-semibold">Quick Facts</h1>
+          <p className="text-sm">
+            <span className="font-semibold">Birth:</span> March 22, 2004 (age{" "}
+            {age} years), Tangerang.
+          </p>
+          <p className="text-sm">
+            <span className="font-semibold">Education:</span> SMK Mulia Buana
+            (2018-2021)
+          </p>
+          <p className="text-sm">
+            <span className="font-semibold">Skills:</span> HTML, CSS,
+            Javascript, ReactJS, TailwindCSS
+          </p>
+        </div>
+        <div className="h-2 w-full bg-gray-200"></div>
+        <div className="h-10 w-full"></div>
       </div>
 
       {/* Footer */}
-      <div className="absolute h-fit bottom-0 border-b border-white/10 items-center  px-5 text-black bg-white/10 backdrop-blur-lg  w-full py-5 flex justify-around">
+      <div className="fixed h-fit bottom-0 border-b border-white/10 items-center  px-5 text-black bg-white/10 backdrop-blur-lg  w-full py-5 flex justify-around">
         <GiHamburgerMenu size={20} className="cursor-pointer" />
         <Home
           size={20}
