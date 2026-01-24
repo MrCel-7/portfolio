@@ -9,6 +9,7 @@ import BottomNav from "./components/BottomNav";
 import ShowSkill from "./components/ShowSkill";
 import ShowAbout from "./components/ShowAbout";
 import ShowBrowser from "./pages/ShowBrowser";
+import ShowProject from "./components/ShowProject";
 
 const App = () => {
   const [offsetY, setOffsetY] = useState(0);
@@ -193,6 +194,9 @@ const App = () => {
               mySql={mySql}
             />
           )}
+
+          {/* Project */}
+          {showProject && <ShowProject setShowProject={setShowProject} />}
 
           {/* Bottom Apps Icon */}
           <BottomNav

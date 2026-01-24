@@ -15,6 +15,8 @@ const BottomNav = ({
         onClick={() => {
           setShowAbout(true);
           setShowSkill(false);
+          setShowProject(false);
+          setShowContact(false);
         }}
         className="w-15 hover:scale-110 cursor-pointer h-15 rounded-full flex border-3 justify-center items-center border-white"
       >
@@ -22,8 +24,10 @@ const BottomNav = ({
       </div>
       <div
         onClick={() => {
-          setShowSkill(true);
           setShowAbout(false);
+          setShowSkill(true);
+          setShowProject(false);
+          setShowContact(false);
         }}
         className="w-15 hover:scale-110 cursor-pointer h-15 rounded-full flex border-3 justify-center items-center border-white"
       >
@@ -40,10 +44,26 @@ const BottomNav = ({
       >
         <Home size={28} className="text-white font-bold" />
       </div>
-      <div className="w-15 hover:scale-110 cursor-pointer h-15 rounded-full flex border-3 justify-center items-center border-white">
+      <div
+        onClick={() => {
+          setShowAbout(false);
+          setShowSkill(false);
+          setShowProject(true);
+          setShowContact(false);
+        }}
+        className="w-15 hover:scale-110 cursor-pointer h-15 rounded-full flex border-3 justify-center items-center border-white"
+      >
         <GiOpenBook size={28} className="text-white font-bold" />
       </div>
-      <div className="w-15 hover:scale-110 cursor-pointer h-15 rounded-full flex border-3 justify-center items-center border-white">
+      <div
+        onClick={() => {
+          setShowAbout(false);
+          setShowSkill(false);
+          setShowProject(false);
+          setShowContact(true);
+        }}
+        className="w-15 hover:scale-110 cursor-pointer h-15 rounded-full flex border-3 justify-center items-center border-white"
+      >
         <Phone size={28} className="text-white font-bold" />
       </div>
     </div>

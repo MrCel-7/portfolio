@@ -45,15 +45,6 @@ const ShowBrowser = ({ setShowChrome, age }) => {
                 draggable={false}
               />
             </div>
-
-            {/* Image 3 */}
-            <div className="bg-yellow-300 min-w-50 snap-center overflow-hidden">
-              <img
-                src="/girl.png"
-                className="w-50 h-50 object-cover"
-                draggable={false}
-              />
-            </div>
           </div>
         </div>
 

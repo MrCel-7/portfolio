@@ -50,7 +50,7 @@ const ShowSkill = ({
           </div>
           <div className="flex mt-5 flex-col">
             <div className="flex w-full justify-between">
-              <h1 className="text-xl">TailwindCSS</h1>
+              <h1 className="text-xl">Tailwind CSS</h1>
               <span>{tailwindPercent}%</span>
             </div>
             <div className="w-full rounded-full overflow-hidden bg-white/30 backdrop-blur-lg">
