@@ -45,3 +45,90 @@ body {
 .square:hover {
   background-color: #f2f2f2;
 }
+
+@font-face {
+  font-family: "bakerie";
+  src: url("/fonts/Bakerie.otf") format("opentype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "gued";
+  src: url("/fonts/Gued.otf") format("opentype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "milkyway";
+  src: url("/fonts/Milkyway.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "handcaps";
+  src: url("/fonts/Handcaps.otf") format("opentype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "lemonade";
+  src: url("/fonts/Lemonade.otf") format("opentype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+.bakerie {
+  font-family: "bakerie";
+}
+
+.gued {
+  font-family: "gued";
+}
+
+.milkyway {
+  font-family: "milkyway";
+}
+
+.lemonade {
+  font-family: "lemonade";
+}
+
+.handcaps {
+  font-family: "handcaps";
+}
+
+.bg-green-base {
+  background-color: #4c8447;
+}
+
+.bg-yellow-base {
+  background-color: #f8ffde;
+}
+
+.bg-yellow-base:hover {
+  background-color: #f8ffde90;
+}
+
+.wall-yellow-base {
+  background-color: #f8ffde;
+}
+
+.text-yellow-base {
+  color: #f8ffde;
+}
+
+.text-green-base {
+  color: #4c8447;
+}
+
+.text-yellow-base-400 {
+  color: #f8ffde40;
+}
+
+.text-yellow-base-400:hover {
+  color: #f8ffde80;
+}

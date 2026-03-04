@@ -1,64 +1,51 @@
-import { useState } from "react";
-import { NavLink, useNavigate } from "react-router-dom";
+import Header from "../Components/Header";
+import { FaWhatsapp } from "react-icons/fa";
 
 const Dashboard = () => {
-  const navigate = useNavigate();
-
-  const toContact = () => {
-    navigate("/contact");
-  };
   return (
-    <div className="w-full h-screen flex">
-      {/* Header */}
-      <div className="w-full flex justify-between items-center h-fit py-4 px-8">
-        <div className="flex-1 flex">
-          <h1 className="text-2xl font-bold text-blue-400 text-shadow-md">
-            MARCEL WANG
-          </h1>
+    <div>
+      <div className="relative w-full min-h-screen bg-green-base text-yellow-base flex flex-col">
+        <Header />
+
+        {/* Main Content */}
+        <div className="flex-1 flex items-center justify-center px-20">
+          <div className="w-full max-w-6xl flex items-center justify-between">
+            {/* Left Content */}
+            <div className="max-w-xl flex flex-col">
+              <h1 className="text-6xl gued">~ Marcel Wang ~</h1>
+
+              <p className="lemonade text-md my-6 indent-8 text-justify">
+                As a{" "}
+                <span className="text-green-300">frontend web developer</span>,
+                I enjoy transforming designs into engaging and interactive
+                digital experiences. With expertise in{" "}
+                <span className="text-blue-300">React</span>,{" "}
+                <span className="text-yellow-400">JavaScript</span>, and{" "}
+                <span className="text-blue-200">Tailwind CSS</span>, I build
+                websites that are not only visually appealing but also fast and
+                responsive.
+              </p>
+
+              <button className="w-fit px-6 py-2 bg-yellow-base text-green-base rounded-md shadow-lg font-bold hover:opacity-90 transition">
+                About Me
+              </button>
+            </div>
+
+            {/* Right Image */}
+            <div className="flex justify-end">
+              <div className="wall-yellow-base rounded-xl shadow-xl p-5">
+                <img src="/collage.png" alt="Collage" className="w-60" />
+              </div>
+            </div>
+          </div>
         </div>
-        <div className="flex flex-1 justify-center gap-5">
-          <NavLink
-            to="/dashboard"
-            className={({ isActive }) =>
-              isActive ? "text-black" : "text-gray-400 hover:text-black/70"
-            }
-          >
-            Dashboard
-          </NavLink>
-          <NavLink
-            to="/about"
-            className={({ isActive }) =>
-              isActive ? "text-black" : "text-gray-400 hover:text-black/70"
-            }
-          >
-            About
-          </NavLink>
-          <NavLink
-            to="/project"
-            className={({ isActive }) =>
-              isActive ? "text-black" : "text-gray-400 hover:text-black/70"
-            }
-          >
-            Project
-          </NavLink>
-          <NavLink
-            to="/skill"
-            className={({ isActive }) =>
-              isActive ? "text-black" : "text-gray-400 hover:text-black/70"
-            }
-          >
-            Skill
-          </NavLink>
-        </div>
-        <div className="flex-1 flex justify-end">
-          <button
-            onClick={toContact}
-            className="py-2 px-3 bg-blue-400 rounded-md shadow-md font-bold text-white cursor-pointer hover:bg-blue-300"
-          >
-            Contact Me
-          </button>
+
+        {/* WhatsApp Icon (pojok kanan bawah) */}
+        <div className="mt-auto flex justify-end px-20 pb-6">
+          <FaWhatsapp className="text-4xl text-yellow-base cursor-pointer hover:scale-110 transition" />
         </div>
       </div>
+      <div className="w-full h-screen"></div>
     </div>
   );
 };
