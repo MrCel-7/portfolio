@@ -3,21 +3,21 @@ import { NavLink, useNavigate } from "react-router-dom";
 
 const Header = () => {
   const navigate = useNavigate();
+  const [isScrolled, setIsScrolled] = useState(false);
 
   const toContact = () => {
     navigate("/contact");
   };
 
-  const [darkTest, setDarkTest] = useState(false);
-
   useEffect(() => {
     const handleScroll = () => {
-      if (window.scrollY > 600) {
-        setDarkTest(true);
+      if (window.scrollY > 50) {
+        setIsScrolled(true);
       } else {
-        setDarkTest(false);
+        setIsScrolled(false);
       }
     };
+
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   });
@@ -25,19 +25,15 @@ const Header = () => {
   return (
     <div>
       {/* Header */}
-      <div className="w-full fixed flex justify-between items-center h-fit py-4 px-8">
-        {/* <div className="flex-1 flex">
-          <h1 className="text-4xl gued font-bold text-yellow-base text-shadow-md">
-            Marcel Wang
-          </h1>
-        </div> */}
+      <div
+        className={`w-full fixed flex justify-between items-center h-fit py-4 px-8 transition-all duration-300 ${isScrolled ? "backdrop-blur-md bg-white/30 shadow-lg" : "bg-transparent"}`}
+      >
         <div className="flex flex-1 gap-5">
           <NavLink
             to="/dashboard"
-            className={`{darkText ? "text-black" : ({ isActive }) =>
-              isActive
-                ? "text-yellow-base"
-                : "text-yellow-base-400"}`}
+            className={({ isActive }) =>
+              isActive ? "text-yellow-base" : "text-yellow-base-400"
+            }
           >
             Dashboard
           </NavLink>
@@ -75,7 +71,7 @@ const Header = () => {
         <div className="flex-1 flex justify-end">
           <button
             onClick={toContact}
-            className="py-2 px-3 bg-yellow-base rounded-md shadow-md font-bold text-green-base cursor-pointer hover:bg-yellow-200"
+            className="py-2 px-3 hover:scale-105 transition bg-yellow-base rounded-md shadow-md font-bold text-green-base cursor-pointer hover:bg-yellow-200"
           >
             Contact Me
           </button>

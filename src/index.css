@@ -109,8 +109,12 @@ body {
   background-color: #f8ffde;
 }
 
-.bg-yellow-base:hover {
-  background-color: #f8ffde90;
+.bg-green-second {
+  background-color: #589653;
+}
+
+.text-green-second {
+  color: #589653;
 }
 
 .wall-yellow-base {

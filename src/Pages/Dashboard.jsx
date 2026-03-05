@@ -1,5 +1,7 @@
 import Header from "../Components/Header";
 import { FaWhatsapp } from "react-icons/fa";
+import { FaGithub } from "react-icons/fa";
+import { FaLinkedin } from "react-icons/fa";
 
 const Dashboard = () => {
   return (
@@ -8,7 +10,7 @@ const Dashboard = () => {
         <Header />
 
         {/* Main Content */}
-        <div className="flex-1 flex items-center justify-center px-20">
+        <div className="flex-4 flex flex-col items-center justify-center">
           <div className="w-full max-w-6xl flex items-center justify-between">
             {/* Left Content */}
             <div className="max-w-xl flex flex-col">
@@ -26,7 +28,7 @@ const Dashboard = () => {
                 responsive.
               </p>
 
-              <button className="w-fit px-6 py-2 bg-yellow-base text-green-base rounded-md shadow-lg font-bold hover:opacity-90 transition">
+              <button className="w-fit cursor-pointer px-6 py-2 bg-yellow-base text-green-base rounded-md shadow-lg font-bold hover:scale-105 transition">
                 About Me
               </button>
             </div>
@@ -34,18 +36,23 @@ const Dashboard = () => {
             {/* Right Image */}
             <div className="flex justify-end">
               <div className="wall-yellow-base rounded-xl shadow-xl p-5">
-                <img src="/collage.png" alt="Collage" className="w-60" />
+                <img
+                  src="/collage.png"
+                  alt="Collage"
+                  className="w-60 hover:scale-105 transition"
+                />
               </div>
             </div>
           </div>
         </div>
-
         {/* WhatsApp Icon (pojok kanan bawah) */}
-        <div className="mt-auto flex justify-end px-20 pb-6">
+        <div className="h-fit gap-5 py-0 flex justify-end px-20 pb-6">
           <FaWhatsapp className="text-4xl text-yellow-base cursor-pointer hover:scale-110 transition" />
+          <FaGithub className="text-4xl text-yellow-base cursor-pointer hover:scale-110 transition" />
+          <FaLinkedin className="text-4xl text-yellow-base cursor-pointer hover:scale-110 transition" />
         </div>
       </div>
-      <div className="w-full h-screen"></div>
+      <div className="w-full h-screen bg-green-second"></div>
     </div>
   );
 };
