@@ -6,7 +6,10 @@ import { FaLinkedin } from "react-icons/fa";
 const Dashboard = () => {
   return (
     <div>
-      <div className="relative w-full min-h-screen bg-green-base text-yellow-base flex flex-col">
+      <div
+        id="dashboard-section"
+        className="relative w-full min-h-screen bg-green-base text-yellow-base flex flex-col"
+      >
         <Header />
 
         {/* Main Content */}
@@ -52,7 +55,9 @@ const Dashboard = () => {
           <FaLinkedin className="text-4xl text-yellow-base cursor-pointer hover:scale-110 transition" />
         </div>
       </div>
-      <div className="w-full h-screen bg-green-second"></div>
+      <div id="about-section" className="w-full h-screen bg-green-second">
+        <h1>ABOUT</h1>
+      </div>
     </div>
   );
 };
